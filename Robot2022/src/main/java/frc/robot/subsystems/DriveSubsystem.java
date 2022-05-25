@@ -84,11 +84,12 @@ public class DriveSubsystem extends SubsystemBase {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    public void setLeftSpeed(double speed){
-    leftMotors.set(speed);
+    public void setLeftSpeed(double speed) {
+        leftMotors.set(speed);
     }
-    public void setRightSpeed(double speed){
-    rightMotors.set(speed);
+
+    public void setRightSpeed(double speed) {
+        rightMotors.set(speed);
     }
 
 }
