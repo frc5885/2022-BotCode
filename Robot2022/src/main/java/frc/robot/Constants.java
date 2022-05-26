@@ -18,8 +18,8 @@ public final class Constants {
         // Drive motors CAN IDs
         public static final int k_LeftFrontMotor  = 1;
         public static final int k_LeftBackMotor   = 2;
-        public static final int k_RightFrontMotor = 1;
-        public static final int k_RightBackMotor  = 2;
+        public static final int k_RightFrontMotor = 3;
+        public static final int k_RightBackMotor  = 4;
 
         // Left/Right motor group inverted
         public static final boolean k_InvertLeftMotors  = false;

@@ -28,7 +28,7 @@ public class DriveSubsystem extends SubsystemBase {
   public DriveSubsystem() {
 
     m_LeftMotors.setInverted(DriveConstants.k_InvertLeftMotors);
-    m_LeftMotors.setInverted(DriveConstants.k_InvertRightMotors);
+    m_RightMotors.setInverted(DriveConstants.k_InvertRightMotors);
 
   }
 
