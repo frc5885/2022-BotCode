@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -16,10 +18,10 @@ public final class Constants {
 
     public static final class DriveConstants {
         // Drive motors CAN IDs
-        public static final int k_LeftFrontMotor  = 1;
-        public static final int k_LeftBackMotor   = 2;
-        public static final int k_RightFrontMotor = 3;
-        public static final int k_RightBackMotor  = 4;
+        public static final int k_LeftFrontMotor  = 4;
+        public static final int k_LeftBackMotor   = 3;
+        public static final int k_RightFrontMotor = 1;
+        public static final int k_RightBackMotor  = 2;
 
         // Left/Right motor group inverted
         public static final boolean k_InvertLeftMotors  = false;
@@ -27,11 +29,12 @@ public final class Constants {
 
         // Drive speed constants
         public static final double k_MaxSpeed   = 0.6;
-        public static final double k_BoostSpeed = 0.8;
+        public static final double k_BoostSpeed = 1;
     }
 
     public static final class ControllerConstants {
         // Main controller (steering/lift/shooting) constants
         public static final int k_MainControllerPort = 0;
+        public static final int k_BoostButton = XboxController.Button.kRightBumper.value;
     }
 }
