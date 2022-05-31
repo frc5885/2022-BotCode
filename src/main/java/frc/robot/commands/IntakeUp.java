@@ -7,11 +7,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.IntakeSubsystem;
 
-public class IntakeForward extends CommandBase {
+public class IntakeUp extends CommandBase {
   private final IntakeSubsystem m_IntakeSubsystem;
 
   /** Creates a new IntakeForward. */
-  public IntakeForward(IntakeSubsystem intakeSubsystem) {
+  public IntakeUp(IntakeSubsystem intakeSubsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(intakeSubsystem);
 
@@ -21,12 +21,12 @@ public class IntakeForward extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_IntakeSubsystem.forward();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_IntakeSubsystem.reverse();
   }
 
   // Called once the command ends or is interrupted.
@@ -38,6 +38,6 @@ public class IntakeForward extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return m_IntakeSubsystem.getUpperLimitSwitch();
   }
 }

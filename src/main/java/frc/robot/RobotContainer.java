@@ -8,11 +8,15 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.ControllerConstants;
 import frc.robot.Constants.DriveConstants;
+import frc.robot.commands.IntakeDown;
+import frc.robot.commands.IntakeUp;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -27,6 +31,8 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_DriveSubsystem = new DriveSubsystem();
 
+  private final IntakeSubsystem m_IntakeSubsystem = new IntakeSubsystem();
+
   private final XboxController m_MainController = new XboxController(ControllerConstants.k_MainControllerPort);
 
   /**
@@ -36,9 +42,10 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
-    m_DriveSubsystem.setDefaultCommand(
-        new RunCommand(() -> m_DriveSubsystem.tankDrive(m_MainController.getLeftY(), m_MainController.getRightY()),
-            m_DriveSubsystem));
+    // m_DriveSubsystem.setDefaultCommand(
+    // new RunCommand(() -> m_DriveSubsystem.tankDrive(m_MainController.getLeftY(),
+    // m_MainController.getRightY()),
+    // m_DriveSubsystem));
   }
 
   /**
@@ -53,6 +60,11 @@ public class RobotContainer {
     new JoystickButton(m_MainController, ControllerConstants.k_BoostButton)
         .whenPressed(() -> m_DriveSubsystem.setMaxSpeed(DriveConstants.k_BoostSpeed))
         .whenReleased(() -> m_DriveSubsystem.setMaxSpeed(DriveConstants.k_MaxSpeed));
+
+    new POVButton(m_MainController, ControllerConstants.k_IntakeUpButton)
+        .whenPressed(new IntakeUp(m_IntakeSubsystem).withTimeout(3));
+    new POVButton(m_MainController, ControllerConstants.k_IntakeDownButton)
+        .whenPressed(new IntakeDown(m_IntakeSubsystem).withTimeout(3));
   }
 
   /**

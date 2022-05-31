@@ -41,11 +41,15 @@ public final class Constants {
         public static final int k_MainControllerPort = 0;
         public static final int k_BoostButton = XboxController.Button.kRightBumper.value;
         public static final int k_IntakeForwardButton = XboxController.Button.kY.value;
-        public static final int K_IntakeReverseButton = XboxController.Button.kX.value;
+        public static final int k_IntakeReverseButton = XboxController.Button.kX.value;
+        public static final int k_IntakeDownButton = 180;
+        public static final int k_IntakeUpButton = 0;
 
     }
 
     public static final class IntakeConstants {
+        public static final int k_UpperLimitSwitchPort = 1;
+        public static final int k_LowerLimitSwitchPort = 0;
         public static final int k_IntakeMotor = 1;
         // Intake Speed Constants
         public static final double k_IntakeMotorSpeed = 0.5;

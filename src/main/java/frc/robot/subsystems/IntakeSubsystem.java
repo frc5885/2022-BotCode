@@ -6,12 +6,15 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.IntakeConstants;
 
 public class IntakeSubsystem extends SubsystemBase {
 
   private final WPI_TalonSRX m_IntakeMotor = new WPI_TalonSRX(IntakeConstants.k_IntakeMotor);
+  private final DigitalInput m_LowerLimitSwitch = new DigitalInput(IntakeConstants.k_LowerLimitSwitchPort);
+  private final DigitalInput m_UpperLimitSwitch = new DigitalInput(IntakeConstants.k_UpperLimitSwitchPort);
 
   /** Creates a new IntakeSubsystem. */
   public IntakeSubsystem() {
@@ -32,5 +35,13 @@ public class IntakeSubsystem extends SubsystemBase {
 
   public void reverse() {
     m_IntakeMotor.set(-IntakeConstants.k_IntakeMotorSpeed);
+  }
+
+  public boolean getLowerLimitSwitch() {
+    return m_LowerLimitSwitch.get();
+  }
+
+  public boolean getUpperLimitSwitch() {
+    return m_UpperLimitSwitch.get();
   }
 }
