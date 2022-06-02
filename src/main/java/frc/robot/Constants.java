@@ -36,5 +36,12 @@ public final class Constants {
         // Main controller (steering/lift/shooting) constants
         public static final int k_MainControllerPort = 0;
         public static final int k_BoostButton = XboxController.Button.kRightBumper.value;
+        public static final int k_ShootButton = XboxController.Button.kY.value;
+    }
+
+    public static final class ShootingConstants {
+        // Shooter motor CAN IDs (pheonixmotors)
+        public static final int k_ShooterMotor = 9; 
+        public static final double k_ShooterMaxSpeed = 0.5;
     }
 }

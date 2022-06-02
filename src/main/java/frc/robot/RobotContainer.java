@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.ControllerConstants;
 import frc.robot.Constants.DriveConstants;
+import frc.robot.Constants.ShootingConstants;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.ShootingSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
@@ -26,6 +28,8 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_DriveSubsystem = new DriveSubsystem();
+
+  private final ShootingSubsystem m_ShootingSubsystem = new ShootingSubsystem();
 
   private final XboxController m_MainController = new XboxController(ControllerConstants.k_MainControllerPort);
 
@@ -53,6 +57,10 @@ public class RobotContainer {
     new JoystickButton(m_MainController, ControllerConstants.k_BoostButton)
         .whenPressed(() -> m_DriveSubsystem.setMaxSpeed(DriveConstants.k_BoostSpeed))
         .whenReleased(() -> m_DriveSubsystem.setMaxSpeed(DriveConstants.k_MaxSpeed));
+
+    new JoystickButton(m_MainController, ControllerConstants.k_ShootButton)
+        .whenPressed(() -> m_ShootingSubsystem.setSpeed(ShootingConstants.k_ShooterMaxSpeed))
+        .whenReleased(() -> m_ShootingSubsystem.setSpeed(0));
   }
 
   /**
