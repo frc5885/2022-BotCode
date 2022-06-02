@@ -30,12 +30,15 @@ public class DriveSubsystem extends SubsystemBase {
     m_LeftMotors.setInverted(DriveConstants.k_InvertLeftMotors);
     m_RightMotors.setInverted(DriveConstants.k_InvertRightMotors);
 
+    setMaxSpeed(DriveConstants.k_MaxSpeed);
+
   }
 
   public void tankDrive(double leftSpeed, double rightSpeed) {
     m_Drive.tankDrive(leftSpeed, rightSpeed);
   }
-  public void setMaxSpeed(double maxspeed){
+
+  public void setMaxSpeed(double maxspeed) {
     m_Drive.setMaxOutput(maxspeed);
   }
 }
