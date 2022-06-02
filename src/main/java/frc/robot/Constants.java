@@ -53,5 +53,6 @@ public final class Constants {
         public static final int k_IntakeMotor = 1;
         // Intake Speed Constants
         public static final double k_IntakeMotorSpeed = 0.5;
+        public static final double k_IntakeTimeout = 1.5;
     }
 }

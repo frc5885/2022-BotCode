@@ -38,10 +38,10 @@ public class IntakeSubsystem extends SubsystemBase {
   }
 
   public boolean getLowerLimitSwitch() {
-    return m_LowerLimitSwitch.get();
+    return !m_LowerLimitSwitch.get();
   }
 
   public boolean getUpperLimitSwitch() {
-    return m_UpperLimitSwitch.get();
+    return !m_UpperLimitSwitch.get();
   }
 }

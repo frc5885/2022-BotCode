@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.ControllerConstants;
 import frc.robot.Constants.DriveConstants;
+import frc.robot.Constants.IntakeConstants;
 import frc.robot.commands.IntakeDown;
 import frc.robot.commands.IntakeUp;
 import frc.robot.subsystems.DriveSubsystem;
@@ -62,9 +63,9 @@ public class RobotContainer {
         .whenReleased(() -> m_DriveSubsystem.setMaxSpeed(DriveConstants.k_MaxSpeed));
 
     new POVButton(m_MainController, ControllerConstants.k_IntakeUpButton)
-        .whenPressed(new IntakeUp(m_IntakeSubsystem).withTimeout(3));
+        .whenPressed(new IntakeUp(m_IntakeSubsystem).withTimeout(IntakeConstants.k_IntakeTimeout));
     new POVButton(m_MainController, ControllerConstants.k_IntakeDownButton)
-        .whenPressed(new IntakeDown(m_IntakeSubsystem).withTimeout(3));
+        .whenPressed(new IntakeDown(m_IntakeSubsystem).withTimeout(IntakeConstants.k_IntakeTimeout));
   }
 
   /**
