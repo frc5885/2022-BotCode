@@ -40,5 +40,6 @@ public final class Constants {
         // Main controller (steering/lift/shooting) constants
         public static final int k_MainControllerPort = 0;
         public static final int k_BoostButton = XboxController.Button.kRightBumper.value;
+        public static final int k_GyroTest = XboxController.Button.kB.value;
     }
 }

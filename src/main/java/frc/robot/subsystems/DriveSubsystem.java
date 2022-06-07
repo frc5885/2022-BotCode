@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -24,6 +25,8 @@ public class DriveSubsystem extends SubsystemBase {
   private final DifferentialDrive m_Drive = new DifferentialDrive(
       m_LeftMotors, m_RightMotors);
 
+      private final ADXRS450_Gyro m_Gyro = new ADXRS450_Gyro() ;
+
   /** Creates a new DriveSubsystem. */
   public DriveSubsystem() {
 
@@ -32,13 +35,24 @@ public class DriveSubsystem extends SubsystemBase {
 
     setMaxSpeed(DriveConstants.k_MaxSpeed);
 
+    m_Gyro.reset();
+    m_Gyro.calibrate();
+
   }
 
   public void tankDrive(double leftSpeed, double rightSpeed) {
     m_Drive.tankDrive(leftSpeed, rightSpeed);
+    System.out.println(m_Gyro.getAngle());
+    System.out.println(leftSpeed);
+    System.out.println(rightSpeed);
+
   }
 
   public void setMaxSpeed(double maxspeed) {
     m_Drive.setMaxOutput(maxspeed);
+  }
+
+  public double getAngle() {
+    return m_Gyro.getAngle();
   }
 }
