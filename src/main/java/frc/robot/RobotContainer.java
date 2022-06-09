@@ -57,7 +57,7 @@ public class RobotContainer {
         .whenReleased(() -> m_DriveSubsystem.setMaxSpeed(DriveConstants.k_MaxSpeed));
 
     new JoystickButton(m_MainController, ControllerConstants.k_GyroTest)
-        .whenHeld(new PIDCommand(new PIDController(0.01, 0, 0), m_DriveSubsystem::getAngle, 0,
+        .whenHeld(new PIDCommand(new PIDController(0.5, 0, 0.05), m_DriveSubsystem::getAngle, 0,
             output -> m_DriveSubsystem.tankDrive(-output, output), m_DriveSubsystem));
 
   }

@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 
@@ -45,6 +46,7 @@ public class DriveSubsystem extends SubsystemBase {
     System.out.println(m_Gyro.getAngle());
     System.out.println(leftSpeed);
     System.out.println(rightSpeed);
+    SmartDashboard.putNumber("Angle", getAngle());
 
   }
 
