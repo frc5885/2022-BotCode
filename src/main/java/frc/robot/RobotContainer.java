@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.Constants.ControllerConstants;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.LimelightSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.PIDCommand;
@@ -31,6 +32,8 @@ public class RobotContainer {
 
   private final XboxController m_MainController = new XboxController(ControllerConstants.k_MainControllerPort);
 
+
+  private final  LimelightSubsystem m_LimelightSubsystem = new LimelightSubsystem();
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
@@ -57,8 +60,8 @@ public class RobotContainer {
         .whenReleased(() -> m_DriveSubsystem.setMaxSpeed(DriveConstants.k_MaxSpeed));
 
     new JoystickButton(m_MainController, ControllerConstants.k_GyroTest)
-        .whenHeld(new PIDCommand(new PIDController(0.5, 0, 0.05), m_DriveSubsystem::getAngle, 0,
-            output -> m_DriveSubsystem.tankDrive(-output, output), m_DriveSubsystem));
+        .whenHeld(new PIDCommand(new PIDController(0.5, 0, 0.05), m_LimelightSubsystem::getHorizonalOffset, 0,
+            output -> m_DriveSubsystem.tankDrive(output, -output), m_DriveSubsystem));
 
   }
 
