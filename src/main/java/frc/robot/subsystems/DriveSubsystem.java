@@ -43,9 +43,9 @@ public class DriveSubsystem extends SubsystemBase {
 
   public void tankDrive(double leftSpeed, double rightSpeed) {
     m_Drive.tankDrive(leftSpeed, rightSpeed);
-    System.out.println(m_Gyro.getAngle());
-    System.out.println(leftSpeed);
-    System.out.println(rightSpeed);
+    // System.out.println(m_Gyro.getAngle());
+    // System.out.println(leftSpeed);
+    // System.out.println(rightSpeed);
     SmartDashboard.putNumber("Angle", getAngle());
 
   }
@@ -53,8 +53,41 @@ public class DriveSubsystem extends SubsystemBase {
   public void setMaxSpeed(double maxspeed) {
     m_Drive.setMaxOutput(maxspeed);
   }
+  
+  /* Gets current angle of robot gyroscope relative to the home angle
+    Returns angle as long relative to home
+    TODO: Find a better return than 0
+  */
+  public long getAngle() {
 
-  public double getAngle() {
-    return m_Gyro.getAngle();
+    long currentAngle = Math.round(m_Gyro.getAngle());
+    // if(currentAngle != 0){
+    //   long difference = 360 - currentAngle;
+    //   if (target > 180){
+    //     360
+    //   }
+    //   return target;
+    // }
+    if(currentAngle != 0){
+      if (currentAngle > 360 || currentAngle < -360){
+        long mod = 360 % currentAngle;
+        long negativeOne = 0-1;
+        long fakeAngle = (360-mod);
+        return fakeAngle;
+
+
+
+      }
+
+    }
+    return 0;
+    // long target = currentAngle - mod;
+    // System.out.println(target);
+
+
+  }
+
+  public void resetAngle() {
+    m_Gyro.reset();
   }
 }
