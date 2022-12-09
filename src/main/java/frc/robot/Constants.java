@@ -39,8 +39,9 @@ public final class Constants {
     public static final class ControllerConstants {
         // Main controller (steering/lift/shooting) constants
         public static final int k_MainControllerPort = 0;
-        public static final int k_BoostButton = XboxController.Button.kRightBumper.value;
+        public static final int k_BoostButton = XboxController.Button.kLeftStick.value;
         public static final int k_ShootButton = XboxController.Button.kA.value;
+        public static final int k_ShootTrigger = XboxController.Axis.kRightTrigger.value;
         public static final int k_IntakeForwardButton = XboxController.Button.kY.value;
         public static final int k_IntakeReverseButton = XboxController.Button.kX.value;
         public static final int k_IntakeDownButton = 180;

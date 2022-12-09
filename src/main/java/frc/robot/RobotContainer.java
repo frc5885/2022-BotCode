@@ -51,13 +51,13 @@ public class RobotContainer {
         new RunCommand(() -> m_DriveSubsystem.tankDrive(m_MainController.getLeftY(), m_MainController.getRightY()),
             m_DriveSubsystem));
     m_ShootingSubsystem.setDefaultCommand(
-        new RunCommand(() -> m_ShootingSubsystem.Shoot(), m_ShootingSubsystem));
+        new RunCommand(() -> m_ShootingSubsystem.Shoot(m_MainController.getRightTriggerAxis()), m_ShootingSubsystem));
 
     m_IntakeSubsystem.setDefaultCommand(
       new RunCommand(() -> {
-        if (m_MainController.getYButton()) {
+        if (m_MainController.getRightBumper()) {
           m_IntakeSubsystem.reverse();
-        } else if (m_MainController.getXButton()) {
+        } else if (m_MainController.getLeftBumper()) {
           m_IntakeSubsystem.forward();
         } else {
           m_IntakeSubsystem.stop();
@@ -79,6 +79,8 @@ public class RobotContainer {
     new JoystickButton(m_MainController, ControllerConstants.k_BoostButton)
         .whenPressed(() -> m_DriveSubsystem.setMaxSpeed(DriveConstants.k_BoostSpeed))
         .whenReleased(() -> m_DriveSubsystem.setMaxSpeed(DriveConstants.k_MaxSpeed));
+
+    
 
     new JoystickButton(m_MainController, ControllerConstants.k_ShootButton)
         .whenPressed(() -> m_ShootingSubsystem.setSpeed(ShootingConstants.k_ShooterMaxSpeed))

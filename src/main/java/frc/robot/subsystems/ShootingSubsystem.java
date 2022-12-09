@@ -44,4 +44,9 @@ public class ShootingSubsystem extends SubsystemBase {
   {
     m_ShootingMotors.set(m_speed);
   }
+
+  public void Shoot(double triggerSpeed)
+  {
+    m_ShootingMotors.set(triggerSpeed);
+  }
 }
