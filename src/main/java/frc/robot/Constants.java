@@ -22,23 +22,46 @@ public final class Constants {
 
     public static final class DriveConstants {
         // Drive motors CAN IDs
-        public static final int k_LeftFrontMotor = 4;
-        public static final int k_LeftBackMotor = 3;
-        public static final int k_RightFrontMotor = 1;
-        public static final int k_RightBackMotor = 2;
+        public static final int k_LeftFrontMotor = 5;
+        public static final int k_LeftBackMotor = 6;
+        public static final int k_RightFrontMotor = 4;//1;
+        public static final int k_RightBackMotor = 3;//2;
 
         // Left/Right motor group inverted
         public static final boolean k_InvertLeftMotors = true;
         public static final boolean k_InvertRightMotors = false;
 
         // Drive speed constants
-        public static final double k_MaxSpeed = 0.3;
-        public static final double k_BoostSpeed = 0.3;
+        public static final double k_MaxSpeed = 0.6;
+        public static final double k_BoostSpeed = 1;
     }
 
     public static final class ControllerConstants {
         // Main controller (steering/lift/shooting) constants
         public static final int k_MainControllerPort = 0;
         public static final int k_BoostButton = XboxController.Button.kRightBumper.value;
+        public static final int k_ShootButton = XboxController.Button.kA.value;
+        public static final int k_IntakeForwardButton = XboxController.Button.kY.value;
+        public static final int k_IntakeReverseButton = XboxController.Button.kX.value;
+        public static final int k_IntakeDownButton = 180;
+        public static final int k_IntakeUpButton = 0;
+
+    }
+
+    public static final class IntakeConstants {
+        public static final int k_UpperLimitSwitchPort = 1;
+        public static final int k_LowerLimitSwitchPort = 0;
+        public static final int k_IntakeMotor = 13;
+        public static final int k_DeepIntakeMotor = 9;
+        // Intake Speed Constants
+        public static final double k_IntakeMotorSpeed = 0.5;
+        public static final double k_IntakeTimeout = 1.5;
+    }
+
+    public static final class ShootingConstants {
+        // Shooter motor CAN IDs (pheonixmotors)
+        public static final int k_ShooterMotorLeft = 2;
+        public static final int k_ShooterMotorRight = 1;
+        public static final double k_ShooterMaxSpeed = 0.75;
     }
 }
