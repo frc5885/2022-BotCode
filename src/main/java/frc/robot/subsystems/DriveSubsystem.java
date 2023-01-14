@@ -50,6 +50,17 @@ public class DriveSubsystem extends SubsystemBase {
 
   }
 
+  public void tankDriveSafty(double leftSpeed, double rightSpeed, double max) {
+    leftSpeed = Math.min(leftSpeed, max);
+    rightSpeed = Math.min(rightSpeed, max);
+    m_Drive.tankDrive(leftSpeed, rightSpeed);
+    System.out.println(m_Gyro.getAngle());
+    System.out.println(leftSpeed);
+    System.out.println(rightSpeed);
+    SmartDashboard.putNumber("Angle", getAngle());
+
+  }
+
   public void setMaxSpeed(double maxspeed) {
     m_Drive.setMaxOutput(maxspeed);
   }
