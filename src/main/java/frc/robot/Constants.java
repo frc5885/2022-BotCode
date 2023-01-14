@@ -33,7 +33,7 @@ public final class Constants {
 
         // Drive speed constants
         public static final double k_MaxSpeed = 0.3;
-        public static final double k_BoostSpeed = 0.3;
+        public static final double k_BoostSpeed = 0.6;
     }
 
     public static final class ControllerConstants {
@@ -41,5 +41,6 @@ public final class Constants {
         public static final int k_MainControllerPort = 0;
         public static final int k_BoostButton = XboxController.Button.kRightBumper.value;
         public static final int k_GyroTest = XboxController.Button.kB.value;
+        public static final int k_GyroReset = XboxController.Button.kA.value;
     }
 }

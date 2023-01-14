@@ -60,6 +60,8 @@ public class RobotContainer {
         .whenHeld(new PIDCommand(new PIDController(0.0975, 0.003, -0.02), m_DriveSubsystem::getAngle, -0.7,
             output -> m_DriveSubsystem.tankDrive(-output, -output), m_DriveSubsystem));
 
+    new JoystickButton(m_MainController, ControllerConstants.k_GyroReset)
+        .whenPressed(new InstantCommand(m_DriveSubsystem::resetAngle));
   }
 
   /**
@@ -71,4 +73,5 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
     return new InstantCommand();
   }
+  
 }
